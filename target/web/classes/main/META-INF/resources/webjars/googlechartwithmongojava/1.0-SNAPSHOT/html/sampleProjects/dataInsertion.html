@@ -1,0 +1,83 @@
+<!--      -------------------------------------     -->
+<!--         "insertModel" is a form module      -->
+<!--      -------------------------------------     -->
+<div id="insertModel" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content ">
+      <div class="modal-header text-center text-uppercase" style="background-color:black;">
+        <div uib-tooltip="Close add data view" ng-click="home.isHideDataVisible()" class="pull-right" style="color:#F76658; cursor: pointer;" data-dismiss="modal"><i class="fas fa-times-circle fa-2x"></i></div>
+        <h2 class="modal-title" style="color:white;">
+          <b>Add Data</b>
+        </h2>
+      </div>
+      <div class="modal-body">
+        <uib-tabset active="home.companyOne.active">
+          <uib-tab index="0">
+            <uib-tab-heading>Requirments</uib-tab-heading>
+            <div class="modal-body row">
+              <form ng-submit="home.companyOneForm()" role="form" id="companyOneForm" name="companyOneForm.form" class="form-horizontal" novalidate="" enctype="multipart/form-data">
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="col-md-6">
+                        <div class="form-group  has-feedback has-feedback-right ">
+                          <label class="col-sm-12">Product Name</label>
+                          <div class="col-sm-12">
+                            <select class="form-control text-uppercase cursor_pointer" required
+                              ng-model="home.form.data.productName">
+                              <option ng-hide="true"></option>
+                              <option>Dell PowerEdge T430</option>
+                              <option>Dell Poweredge Server T330</option>
+                              <option>DELL PowerEdge T30</option>
+                            </select>
+                          </div>
+                          <label class="col-sm-12">Sells Area</label>
+                          <div class="col-sm-12">
+                            <select class="form-control text-uppercase cursor_pointer" required
+                              ng-model="home.form.data.sellsArea">
+                              <option ng-hide="true"></option>
+                              <option>UK</option>
+                              <option>UAE</option>
+                              <option>Canada</option>
+                              <option>USA</option>
+                              <option>Brazil</option>
+                            </select>
+                          </div>
+                          <label class="col-sm-12">Number of Sales</label>
+                          <div class="col-sm-12 cursor_pointer">
+                            <input class="form-control" type="text" maxlength="3" name="numberOfsells" ng-model="home.form.data.numberOfsells" ng-pattern="/^[0-9]*$/">
+                          </div>
+                          <div ng-click="home.isCalendarOpen()" class="col-sm-12 cursor_pointer">
+                            <label class="col-sm-12">Date</label>
+                            <p class="input-group col-sm-12">
+                              <input type="text" class="form-control" uib-datepicker-popup="{{home.format}}" ng-model="home.form.data.dt"
+                              is-open="home.popup1" datepicker-options="home.dateOptions" ng-required="true" close-text="Close"
+                              alt-input-formats="home.altInputFormats" />
+                              <span class="input-group-btn">
+                                <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-calendar"></i></button>
+                              </span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div id="insertModuleChart"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel-footer">
+                    <div class="form-group">
+                      <div class="col-sm-12 text-center">
+                        <button class="btn btn-primary">Submit</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </uib-tab>
+        </uib-tabset>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,4 @@
+[0m[[31merror[0m] [0m/home/amit/project2018/googleChartWithMongoJava/app/views/index.scala.html:14: Invalid '@' symbol[0m
+[0m[[31merror[0m] [0m    <script data-require="angular.js@1.2.x" src="http://code.angularjs.org/1.2.9/angular.js" data-semver="1.2.9"></script>[0m
+[0m[[31merror[0m] [0m                                    ^[0m
+[0m[[31merror[0m] [0m(compile:[31mtwirlCompileTemplates[0m) Twirl compilation failed[0m

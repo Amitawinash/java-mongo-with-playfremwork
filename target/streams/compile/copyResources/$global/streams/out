@@ -1,0 +1,4 @@
+[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
+[0m[[0mdebug[0m] [0m	(/home/amit/Documents/ChangeSET/learnJavaAngularJs_DesignPatterns/conf/routes,/home/amit/Documents/ChangeSET/learnJavaAngularJs_DesignPatterns/target/scala-2.11/classes/routes)[0m
+[0m[[0mdebug[0m] [0m	(/home/amit/Documents/ChangeSET/learnJavaAngularJs_DesignPatterns/conf/logback.xml,/home/amit/Documents/ChangeSET/learnJavaAngularJs_DesignPatterns/target/scala-2.11/classes/logback.xml)[0m
+[0m[[0mdebug[0m] [0m	(/home/amit/Documents/ChangeSET/learnJavaAngularJs_DesignPatterns/conf/application.conf,/home/amit/Documents/ChangeSET/learnJavaAngularJs_DesignPatterns/target/scala-2.11/classes/application.conf)[0m

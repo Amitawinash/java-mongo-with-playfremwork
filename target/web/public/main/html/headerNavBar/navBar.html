@@ -1,0 +1,43 @@
+<nav class="navbar navbar-default navbar-buttom .col-md-3 .col-md-offset-3" role="navigation">
+  <div class="navbar-header">
+    <div type="button" class="navbar-toggle" ng-click="isNavCollapsed = !isNavCollapsed">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+  </div>
+  <div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">
+    <ul class="nav navbar-nav" style="width:100%">
+      <li uib-dropdown is-open="" class="cursor_pointer" ><a uib-dropdown-toggle ng-disabled="disabled"><b>Sample Projects</b></a>
+        <ul class="dropdown-menu bg-success" uib-dropdown-menu role="menu" aria-labelledby="AboutWebsite">
+          <li><a  ng-click="home.showChart()" class="cursor_pointer">Data Analysis</a></li>
+          <li role="menuitem"><a ng-click="home.showInsertModel()" class="cursor_pointer">Data Insertion</a></li>
+          <li role="menuitem"><a class="cursor_pointer" ng-click="home.showTabularView()" >Tabular View</a></li>
+        </ul>
+      </li>
+      <li uib-dropdown is-open="" ng-click="home.showHowDid_I_doThis()" class="cursor_pointer"><a uib-dropdown-toggle ng-disabled="disabled"><b>How Did I do This!</b></a>
+      </li>
+      <li class="pull-right bg-info cursor_pointer"><a ng-click="home.isAboutMe = !home.isAboutMe">About me</a></li>
+      <li class="pull-right bg-info cursor_pointer"><a ng-click="home.isContactMe = !home.isContactMe">Contact me</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="horizontal-collapse" uib-collapse="home.isAboutMe" horizontal>
+  <div class="well well-lg text-center">
+    I am a passionate and hardworking software developer, interested in working with like-minded people.
+    <br>
+    #playframework #JAVA #AngularJS #NoSQL #MongoDB #SQL #RESTful API #IOT #PHP
+  </div>
+</div>
+<div class="horizontal-collapse" uib-collapse="home.isContactMe" horizontal>
+  <div class="well well-lg">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="col-sm-4">Email : <b>{{home.emailId}}</b></div>
+        <div class="col-sm-4">Mobile : <b>8088427746</b></div>
+        <div class="col-sm-4">Location : <b>Bangalore, India</b></div>
+      </div>
+    </div>
+  </div>
+</div>
