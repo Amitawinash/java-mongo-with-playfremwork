@@ -1,0 +1,46 @@
+<div id="how_did_i_do_this" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content ">
+      <div class="modal-header text-center text-uppercase" style="background-color:black;">
+        <div ng-click="home.isHideDataVisible()" class="pull-right" style="color:#F76658; cursor: pointer;" data-dismiss="modal"><i class="fas fa-times-circle fa-2x"></i></div>
+        <h2 class="modal-title" style="color:white;">
+          <b>How Did I Do This</b>
+        </h2>
+      </div>
+      <div class="modal-body">
+        <uib-tabset active="home.companyOne.active">
+          <uib-tab index="0">
+            <uib-tab-heading>About sample project</uib-tab-heading>
+            <div class="modal-body row">
+              <form ng-submit="home.companyOneForm()" role="form" id="companyOneForm" name="companyOneForm.form" class="form-horizontal" novalidate="" enctype="multipart/form-data">
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <iframe width="100%"  style="height:400px" src="https://docs.google.com/document/d/e/2PACX-1vSi1TFppsu0qY4PigfH_ttm1cRuKy559E2dEG2teVxA_8v49zVkaGOeu-jaQoJptjVzmXXtpkpyhMsl/pub?embedded=true"></iframe>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </uib-tab>
+          <uib-tab index="1" ng-hide="true">
+            <uib-tab-heading>
+            Devlopment Time
+            </uib-tab-heading>
+            <div class="modal-body row">
+              <form ng-submit="home.companyOneForm()" role="form" id="companytwoForm" name="companyOneForm.form" class="form-horizontal" novalidate="" enctype="multipart/form-data">
+                <div class="panel-body">
+                  <div class="row">
+                      <div class="col-md-12">
+                        <iframe width="100%"  style="height:400px"  src="https://docs.google.com/document/d/e/2PACX-1vQxYMqWwR4qEjBDKXhKBv8OwKlZ9R7DHGhfPqhjz38g73OCwRX9Ico7Cdk60RtXoi6iiZjMet7AbkM3/pub?embedded=true"></iframe>
+                      </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </uib-tab>
+        </uib-tabset>
+      </div>
+    </div>
+  </div>
+</div>

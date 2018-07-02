@@ -1,0 +1,137 @@
+@*
+ * This template takes a single argument, a String containing a
+ * page_view to display.
+ *@
+@(page_view: Integer)
+<!DOCTYPE html>
+<html ng-app="landingPage" lang="en-US">
+
+  <head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <meta name="theme-color" content="#000"/>
+   <title>Charts World</title>
+
+    <script src="@routes.Assets.versioned("stylesheets/main.css")"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script  src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js" data-semver="1.6.1"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
+    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="http://cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.css">
+    <script src="@routes.Assets.versioned("javascripts/hello.js")"></script>
+    <style>
+      .horizontal-collapse {
+          height: 70px;
+      }
+      .navbar-collapse.in {
+          overflow-y: hidden;
+      }
+      .btn span.glyphicon {
+          opacity: 0;
+      }
+      .btn.active span.glyphicon {
+          opacity: 1;
+      }
+      .jumbotron{
+          padding-top: 0%;
+      }
+      .cursor_pointer{
+        cursor: pointer;
+      }
+      #nu_add_data_icon.svg-inline--fa.fa-w-14 {
+          width: 1.875em;
+      }
+      #visualization_wrap {
+          position: relative;
+          padding-bottom: 50%;
+          height: 0;
+          overflow:hidden;
+      }
+      #resultChart {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width:100%;
+          height:100%;
+      }
+    </style>
+  </head>
+  <body style="background-color: #000;" ng-controller="homePage as home">
+    <div id="myContainer" class="container h-100 d-flex" >
+      <div class="jumbotron my-auto">
+        <div ng-include="'@routes.Assets.versioned("html/headerNavBar/navBar.html")'"></div>
+
+
+        <div class="page-header text-center" ng-show="home.isProfileDivVisible">
+          <div ng-include="'@routes.Assets.versioned("html/profile_img_and_carousel.html")'"></div>
+        </div>
+        <div ng-include="'@routes.Assets.versioned("html/sampleProjects/dataAnalysis.html")'"></div>
+
+        <div id="tabular_view">
+          <div  class="modal-header text-center text-uppercase" style="background-color:black;">
+            <div uib-tooltip="Close tabular view" ng-click="home.hideChart()" class="pull-right" style="color:#F76658; cursor: pointer;" data-dismiss="modal"><i class="fas fa-times-circle fa-2x"></i></div>
+            <h2 class="modal-title" style="color:white;">
+              <b>Tabular view</b>
+            </h2>
+          </div>
+          <div class="modal-body table-responsive">
+            <table id="datatable-table" class="table table-bordered nowrap" style="autowidth: true"></table>
+          </div>
+        </div>
+
+
+
+        <nav class="navbar navbar-default navbar-buttom .col-md-3 .col-md-offset-3" role="navigation">
+          <div class="navbar-header">
+            <div type="button" class="navbar-toggle" ng-click="isNavCollapsed = !isNavCollapsed">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </div>
+          </div>
+          <div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">
+            <ul class="nav navbar-nav fixed-bottom" style="width:100%">
+              <li uib-tooltip="LinkedIn Link" class="cursor_pointer" uib-dropdown is-open="" ng-click="home.OpenTab('https://www.linkedin.com/in/amitawinash/')" ><a uib-dropdown-toggle ng-disabled="disabled"><i class="fab fa-linkedin fa-2x" style="color:#0084bf; cursor: pointer;"  target="_blank"></i></a>
+
+              </li>
+              <li uib-tooltip="Blogspot Link" class="cursor_pointer" uib-dropdown is-open="" ng-click="home.OpenTab('https://prgconcepts.blogspot.in/2015/06/insert-documents-in-mongodb.html')" ><a uib-dropdown-toggle ng-disabled="disabled"><i class="fab fa-blogger fa-2x" style="color:#F76658; cursor: pointer;"></i></a>
+              </li>
+              <li uib-tooltip="GitLab Link" class="cursor_pointer" uib-dropdown is-open="" ng-click="home.OpenTab('https://gitlab.com/amitawinash')"><a uib-dropdown-toggle ng-disabled="disabled">
+                <svg width="24" height="24" class="tanuki-logo" viewBox="0 0 36 36">
+                  <path class="tanuki-shape tanuki-left-ear" fill="#e24329" d="M2 14l9.38 9v-9l-4-12.28c-.205-.632-1.176-.632-1.38 0z"></path>
+                  <path class="tanuki-shape tanuki-right-ear" fill="#e24329" d="M34 14l-9.38 9v-9l4-12.28c.205-.632 1.176-.632 1.38 0z"></path>
+                  <path class="tanuki-shape tanuki-nose" fill="#e24329" d="M18,34.38 3,14 33,14 Z"></path>
+                  <path class="tanuki-shape tanuki-left-eye" fill="#fc6d26" d="M18,34.38 11.38,14 2,14 6,25Z"></path>
+                  <path class="tanuki-shape tanuki-right-eye" fill="#fc6d26" d="M18,34.38 24.62,14 34,14 30,25Z"></path>
+                  <path class="tanuki-shape tanuki-left-cheek" fill="#fca326" d="M2 14L.1 20.16c-.18.565 0 1.2.5 1.56l17.42 12.66z"></path>
+                  <path class="tanuki-shape tanuki-right-cheek" fill="#fca326" d="M34 14l1.9 6.16c.18.565 0 1.2-.5 1.56L18 34.38z"></path>
+                </svg></a>
+              </li>
+              <li uib-tooltip="YouTube Link" class="cursor_pointer" uib-dropdown is-open="" ng-click="home.OpenTab('https://youtu.be/3Iq7fFCiGms')" ><a uib-dropdown-toggle ng-disabled="disabled"><i class="fab fa-youtube fa-2x" style="color:#f00; cursor: pointer;"></i></a>
+              </li>
+              <li uib-tooltip="Number of visitors" class="pull-right"><a ng-click="home.isAboutMeHorizontal = !home.isAboutMeHorizontal"><i class="fas fa-eye fa-2x" style="color:black;"></i>&nbsp @page_view</a></li>
+            </ul>
+          </div>
+
+        </nav>
+      </div>
+      <a href="mailto:{{home.emailId}}"><h6 class="pull-right"><small style="color:#8bcbf3">Design and developed by <b>Amit Kumar</b></small></h6></a>
+    </div>
+    <div ng-include="'@routes.Assets.versioned("html/sampleProjects/dataInsertion.html")'"></div>
+    <div ng-include="'@routes.Assets.versioned("html/howDid_I_doThis/how_did_i_do_this.html")'"></div>
+
+    <script src="http://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/select/1.2.5/js/dataTables.select.min.js"></script>
+    <script src="http://cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+
+  </body>
+</html>

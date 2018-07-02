@@ -1,0 +1,45 @@
+<!--      -------------------------------------     -->
+<!--         Data Analysis is a chart module     -->
+<!--      -------------------------------------     -->
+<div ng-show="home.isDataAnalysisVisible">
+  <div class="modal-header text-center text-uppercase" style="background-color:black;">
+    <div uib-tooltip="Close data analysis view" ng-click="home.hideChart()" class="pull-right" style="color:#F76658; cursor: pointer;" data-dismiss="modal"><i class="fas fa-times-circle fa-2x"></i></div>
+    <h2 class="modal-title" style="color:white;">
+      <b>Data Analysis</b>
+    </h2>
+  </div>
+
+  <div class="modal-body well well-sm">
+    <div class="row">
+      <div class="col-sm-12">
+        <div uib-tooltip="Select a product to see its bar chart" class="col-sm-4">
+          <select class="form-control text-uppercase" required
+            ng-model="home.productName" ng-click="home.filterChart(home.productName)">
+            <option ng-hide="true"></option>
+            <option>All</option>
+            <option>Dell PowerEdge T430</option>
+            <option>Dell Poweredge Server T330</option>
+            <option>DELL PowerEdge T30</option>
+          </select>
+        </div>
+        <div uib-tooltip="Click to see bar chart based on date." class="btn-group col-sm-2" data-toggle="buttons" ng-click="home.filterChart('date')">
+          <label class="btn btn-primary">Date
+            <input id="dateCheckbox" type="checkbox" autocomplete="off">
+            <span class="glyphicon glyphicon-ok"></span>
+          </label>
+        </div>
+        <div class="col-sm-6" style="color:#b87233; margin-top:0%; cursor: pointer;" ng-click="home.showInsertModel()">
+          <div  uib-tooltip="Open add data view" class="pull-right">
+            <b>Add more Data</b>
+            <i id="nu_add_data_icon" class="far fa-plus-square fa-2x fa-spin"></i>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <div id="visualization_wrap">
+      <div id="resultChart"></div>
+    </div>
+  </div>
+</div>
