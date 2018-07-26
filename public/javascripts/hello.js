@@ -13,7 +13,8 @@
     vm.hideChart = hideChart;
     vm.filterChart = filterChart;
     vm.isHideDataVisible = isHideDataVisible;
-    vm.showTabularView = showTabularView
+    vm.showTabularView = showTabularView;
+    vm.closeAllModals = closeAllModals;
 
     vm.isDataChecked = false;
     vm.isDataAnalysisVisible = false;
@@ -29,6 +30,15 @@
     vm.format = vm.formats[0];
     vm.altInputFormats = ['M!/d!/yyyy'];
     vm.OpenTab = OpenTab;
+
+    function closeAllModals() {
+      vm.isAboutMe = true;
+      vm.isContactMe = true;
+      vm.isDataChecked = false;
+      vm.isDataAnalysisVisible = false;
+      vm.isProfileDivVisible = true;
+      $('#tabular_view').hide();
+    }
 
     function showHowDid_I_doThis() {
       $('#how_did_i_do_this').modal('show');

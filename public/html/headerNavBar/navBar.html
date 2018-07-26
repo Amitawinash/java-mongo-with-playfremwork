@@ -9,7 +9,16 @@
   </div>
   <div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">
     <ul class="nav navbar-nav" style="width:100%">
-      <li uib-dropdown is-open="" class="cursor_pointer" ><a uib-dropdown-toggle ng-disabled="disabled"><b>Sample Projects</b></a>
+        <li uib-tooltip="LinkedIn Link"
+        class="cursor_pointer"
+        uib-dropdown is-open=""
+        ng-click="home.closeAllModals()" >
+        <a uib-dropdown-toggle ng-disabled="disabled">
+          <i class="fas fa-home fa-2x" style="color:#0084bf; cursor: pointer;"></i>
+        </a>
+      </li>
+      <li uib-dropdown is-open="" class="cursor_pointer" >
+        <a uib-dropdown-toggle ng-disabled="disabled"><b>Sample Projects</b></a>
         <ul class="dropdown-menu bg-success" uib-dropdown-menu role="menu" aria-labelledby="AboutWebsite">
           <li><a  ng-click="home.showChart()" class="cursor_pointer">Data Analysis</a></li>
           <li role="menuitem"><a ng-click="home.showInsertModel()" class="cursor_pointer">Data Insertion</a></li>
@@ -20,6 +29,7 @@
       </li>
       <li class="pull-right bg-info cursor_pointer"><a ng-click="home.isAboutMe = !home.isAboutMe">About me</a></li>
       <li class="pull-right bg-info cursor_pointer"><a ng-click="home.isContactMe = !home.isContactMe">Contact me</a></li>
+
     </ul>
   </div>
 </nav>
@@ -27,7 +37,7 @@
   <div class="well well-lg text-center">
     I am a passionate and hardworking software developer, interested in working with like-minded people.
     <br>
-    #playframework #JAVA #AngularJS #NoSQL #MongoDB #SQL #RESTful API #IOT #PHP
+     #JAVA #Playframework #ReactJS #ReduxJs #NodeJs #SingletonDesignPattern #ExpressJs #AngularJS #NoSQL #MongoDB #SQL #RESTful API #IOT #PHP
   </div>
 </div>
 <div class="horizontal-collapse" uib-collapse="home.isContactMe" horizontal>
